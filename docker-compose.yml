@@ -1,0 +1,10 @@
+services:
+  api:
+    container_name: cargotracker-api
+    build: .
+    volumes:
+      - ./:/app/
+    ports:
+      - "3000:3000"
+    command: >
+      sh -c "npm run dev"

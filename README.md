@@ -2,6 +2,8 @@
 
 ## Setup de desenvolvimento
 
+Configure as variáveis de ambiente criando um arquivo `.env` com as variáveis contidas no arquivo `.env.example`
+
 ### Sem Docker
 
 Instale as dependências:

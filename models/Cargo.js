@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
  
 const cargoSchema = new Schema({
@@ -7,9 +7,17 @@ const cargoSchema = new Schema({
     unique: true,
     required: true,
   },
-  source: String,
-  destination: String,
+  source: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Location',
+    required: true,
+  },
+  destination: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Location',
+    required: true,
+  },
   deadlineAt: Date,
 });
  
-module.exports = mongoose.model("Cargo", cargoSchema);
+module.exports = mongoose.model('Cargo', cargoSchema);

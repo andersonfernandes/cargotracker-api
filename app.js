@@ -6,6 +6,7 @@ var logger = require('morgan');
 require('dotenv').config()
 
 var indexRouter = require('./routes/index');
+var cargosRouter = require('./routes/CargosRoutes');
 var locationsRouter = require('./routes/LocationsRoutes');
 
 var app = express();
@@ -33,6 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/cargos', cargosRouter);
 app.use('/locations', locationsRouter);
 
 module.exports = app;

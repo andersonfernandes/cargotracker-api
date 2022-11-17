@@ -1,6 +1,6 @@
-const Location = require("../models/Location");
+const Location = require('../models/Location');
 
-exports.getAllLocations = async (req, res) => {
+exports.getAllLocations = async (_, res) => {
   try {
     const locations = await Location.find({})
     res.json({ data: locations, status: 'success' });

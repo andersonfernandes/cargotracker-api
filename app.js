@@ -9,6 +9,7 @@ require('dotenv').config()
 var indexRouter = require('./routes/index');
 var cargosRouter = require('./routes/CargosRoutes');
 var locationsRouter = require('./routes/LocationsRoutes');
+var eventsRouter = require('./routes/EventsRoutes');
 
 var app = express();
 

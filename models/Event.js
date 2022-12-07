@@ -12,11 +12,13 @@ const eventSchema = new Schema({
     enum: ['LOAD', 'UNLOAD', 'RECEIVE', 'CLAIM', 'CUSTOMS']
   },
   cargo: {
-    type: Cargo,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Cargo',
     required: true,
   },
   location: {
-    type: Location,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Location',
     required: true,
   },
   completedAt: {
@@ -27,7 +29,11 @@ const eventSchema = new Schema({
     type: Date,
     required: true,
   },
-  voyage: Voyage,
+  voyage: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Voyage',
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Event', eventSchema);

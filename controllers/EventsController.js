@@ -1,6 +1,6 @@
 const Event = require('../models/Event');
 
-exports.getAllEvent = async (_, res) => {
+exports.getAllEvents = async (_, res) => {
   try {
     const event = await Event.find({})
     res.json(event);
@@ -8,6 +8,7 @@ exports.getAllEvent = async (_, res) => {
     res.status(500).json({ error: err.message });
   }
 }
+
 exports.getEventByTrackingId = async (req, res) => {
   try {
     const event = await Event.find({}).populate('cargo').where('cargo.trackingId').equals(req.params.trackingId);

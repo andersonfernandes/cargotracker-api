@@ -1,4 +1,5 @@
 const Event = require('../models/Event');
+const Cargo = require('../models/Cargo');
 
 exports.getAllEvents = async (_, res) => {
   try {
@@ -11,7 +12,8 @@ exports.getAllEvents = async (_, res) => {
 
 exports.getEventByTrackingId = async (req, res) => {
   try {
-    const event = await Event.find({}).populate('cargo').where('cargo.trackingId').equals(req.params.trackingId);
+    const cargo = await Cargo.findOne({ trackingId: req.params.trackingId })
+    const event = await Event.find({ cargo: cargo }).populate('cargo');
     res.json(event);
   } catch (err) {
     res.status(500).json({ error: err.message });

@@ -38,5 +38,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/cargos', cargosRouter);
 app.use('/locations', locationsRouter);
+app.use('/events', eventsRouter);
 
 module.exports = app;
